@@ -4,7 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
+
       <Text>Salon Sphere</Text>
+
+     
+
       <StatusBar style="auto" />
     </View>
   );
