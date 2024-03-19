@@ -10,6 +10,7 @@ export default function App() {
 =======
 
       <Text>Salon Sphere by ghaffar</Text>
+      <Text>Hello to new world</Text>
 
      
 
