@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <Text>Salon Sphere</Text>
+      <Text>Shayan</Text>
 
      
 
