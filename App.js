@@ -1,30 +1,83 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { View, Text } from 'react-native'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import SignIn from './components/pages/SignIn';
+import Splash from './components/pages/Splash';
+import Register from './components/pages/Register';
+import Verification from './components/pages/Verification';
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer>
+      <Stack.Navigator >
+      <Stack.Screen
+          name="Splash"
+          component={Splash}
+          options={{
+                        
+            headerShown:false,
 
-      <Text>Shayan</Text>
-      <Text>Shayan 123</Text>
-=======
-
-      <Text>Salon Sphere by ghaffar</Text>
-      <Text>Hello to new world</Text>
-
-     
+headerBackVisible: false,
 
 
-      <StatusBar style="auto" />
-    </View>
-  );
+
+
+} 
 }
+        />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+                        
+            headerShown:false,
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+headerBackVisible: false,
+
+
+
+
+} 
+}
+         
+        />
+          <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+                        
+            headerShown:false,
+
+headerBackVisible: false,
+
+
+
+
+} 
+}
+          
+         
+        />
+
+<Stack.Screen
+          name="Verification"
+          component={Verification}
+          options={{
+                        
+            headerShown:false,
+
+headerBackVisible: false,
+
+
+
+
+} 
+}
+         
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
