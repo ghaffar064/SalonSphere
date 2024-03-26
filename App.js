@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Signup from './components/pages/Signup';
 
 export default function App() {
   return (
     <View style={styles.container}>
 
-      <Signup/>
+      <Text>Salon Sphere</Text>
+
+     
+
       <StatusBar style="auto" />
     </View>
   );
