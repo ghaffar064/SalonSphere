@@ -51,7 +51,7 @@ export default function Signup({navigation}) {
         />
      
         <CustomizedButton btnText="Signup"
-        btnStyle={{backgroundColor:'#E6E6FA'}}
+      
        onPress={()=>alert("Register")}
         />
       </View>

@@ -34,7 +34,7 @@ export default function Signin({ navigation }) {
           <Text>Forgot Password?</Text>
         </TouchableOpacity>
         <CustomizedButton btnText="Login"
-        btnStyle={{backgroundColor:'#E6E6FA'}}
+       
        onPress={()=>alert("login")}
         />
       </View>

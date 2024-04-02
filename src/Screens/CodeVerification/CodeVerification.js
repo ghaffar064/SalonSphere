@@ -31,7 +31,7 @@ export default function CodeVerification({navigation}) {
 
        
         <CustomizedButton btnText="Submit"
-        btnStyle={{backgroundColor:'#E6E6FA',marginTop:moderateVerticalScale(40)}
+        btnStyle={{marginTop:moderateVerticalScale(40)}
       
       }
         onPress={()=>{navigation.navigate(navigationStrings.CHANGEPASSWORD)}}       

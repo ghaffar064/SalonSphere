@@ -2,7 +2,8 @@ import { scale, verticalScale, moderateScale, moderateVerticalScale } from 'reac
 import { StyleSheet } from 'react-native'
  const styles = StyleSheet.create({
     container:{
-      flex:1
+      flex:1,
+      
     },
     view1:{
       justifyContent:'center',alignItems:'center' ,

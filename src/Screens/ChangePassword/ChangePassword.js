@@ -35,7 +35,7 @@ export default function ChangePassword({ navigation }) {
         />
        
         <CustomizedButton btnText="Change Password"
-        btnStyle={{backgroundColor:'#E6E6FA',marginTop:moderateVerticalScale(20)}}
+        btnStyle={{marginTop:moderateVerticalScale(20)}}
        onPress={()=>{navigation.navigate(navigationStrings.SIGNIN)}}
         />
       </View>

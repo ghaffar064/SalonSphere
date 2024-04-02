@@ -35,7 +35,7 @@ export default function ForgotPassword({navigation}) {
 
        
         <CustomizedButton btnText="Submit"
-        btnStyle={{backgroundColor:'#E6E6FA'}}
+       
         onPress={submissionCheck}
         />
       </View>

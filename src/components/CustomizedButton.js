@@ -25,11 +25,13 @@ const styles = StyleSheet.create({
       borderRadius:moderateScale(4),
       alignItems:'center',
       justifyContent:'center',
+      backgroundColor:'black'
+      
      
     },
    btnTextStyle:{
     fontSize:scale(12),
-    color:"black",
+    color:"white",
    
     
    
