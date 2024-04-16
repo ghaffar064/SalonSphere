@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity,ScrollView } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState } from "react";
 import CustomizedTextInput from "../../components/CustomizedTextInput";
 import imagePath from "../../constants/imagePath";
@@ -7,10 +7,28 @@ import { moderateVerticalScale } from "react-native-size-matters";
 import CustomizedButton from "../../components/CustomizedButton";
 import navigationStrings from "../../constants/navigationStrings";
 
-export default function Signin({ navigation }) {
+
+
+
+
+
+  export  function Signin({ navigation }) {
+   
+
+      function handleSignin()
+      {
+        setlogin(true)
+        navigation.navigate(navigationStrings.HOME)
+      }
+  
+ 
   const [notvisible, setNotVisible] = useState(true);
+
+
   return (
+   
     <ScrollView style={styles.container}>
+     
       <View style={styles.view1}>
         <Image source={imagePath.logo} style={styles.imgStyle} />
         <Text style={styles.loginTextStyle}>Login</Text>
@@ -30,20 +48,28 @@ export default function Signin({ navigation }) {
           rightIcon={notvisible ? imagePath.hideEye : imagePath.showEye}
           onPressRight={() => setNotVisible(!notvisible)}
         />
-        <TouchableOpacity style = {styles.forgotPasswordStyle} onPress={()=>{navigation.navigate(navigationStrings.FORGOTPASSWORD)}}>
+        <TouchableOpacity
+          style={styles.forgotPasswordStyle}
+          onPress={() => {
+            navigation.navigate(navigationStrings.FORGOTPASSWORD);
+          }}
+        >
           <Text>Forgot Password?</Text>
         </TouchableOpacity>
-        <CustomizedButton btnText="Login"
-       
-       onPress={()=>alert("login")}
-        />
+        <CustomizedButton btnText="Login" onPress={handleSignin} />
       </View>
-      <View style = {styles.bottomView}>
+      <View style={styles.bottomView}>
         <Text>Not a member?</Text>
-        <TouchableOpacity onPress={()=>{navigation.navigate(navigationStrings.SIGNUP)}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate(navigationStrings.SIGNUP);
+          }}
+        >
           <Text>Join Now</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
+    
   );
 }
+export default Signin
