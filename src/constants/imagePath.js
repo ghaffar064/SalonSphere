@@ -8,5 +8,9 @@ export default {
   profile: require('../assets/images/profile.png'),
   notification: require('../assets/images/notification.png'),
   search: require('../assets/images/search.png'),
-  mic: require('../assets/images/mic.png')
+  mic: require('../assets/images/mic.png'),
+  salonpic:require('../assets/images/salonpic.jpg'),
+  salonpic2:require('../assets/images/salonpic2.jpg'),
+  hairsalon:require('../assets/images/hairsalon.png'),
+
 };

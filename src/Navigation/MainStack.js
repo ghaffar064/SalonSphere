@@ -14,7 +14,9 @@ import {
 } from "../Screens";
 import SearchBar from "../components/SearchBar";
 import CustomizedHeader from "../components/CustomizedHeader";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, TouchableOpacity } from "react-native";
+import color from "../constants/color";
+import {AdjustmentsHorizontalIcon,StarIcon} from "react-native-heroicons/outline";
 const Stack = createNativeStackNavigator();
 
 export default function MainStack() {
@@ -38,15 +40,14 @@ export default function MainStack() {
           headerShadowVisible: false,
 
           headerStyle: {
-            backgroundColor: "#A020F0",
+            backgroundColor: color.colortheme,
           },
-          headerTintColor: "white",
+          headerTintColor: color.forground,
           headerRight: () => (
-            <Button
-              onPress={() => alert("This is filter button!")}
-              title="filter"
-              color="black"
-            />
+           
+            <TouchableOpacity>
+              <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+            </TouchableOpacity>
           ),
         }}
       />
@@ -56,15 +57,12 @@ export default function MainStack() {
                     headerShadowVisible: false,
           
                     headerStyle: {
-                      backgroundColor: "#A020F0",
-                    },
-                    headerTintColor: "white",
+                      backgroundColor: color.colortheme,                    },
+                      headerTintColor: color.forground,
                     headerRight: () => (
-                      <Button
-                        onPress={() => alert("This is filter button!")}
-                        title="filter"
-                        color="black"
-                      />
+                      <TouchableOpacity>
+                      <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+                    </TouchableOpacity>
                     ),
                   }}   
       
@@ -75,15 +73,13 @@ export default function MainStack() {
               headerShadowVisible: false,
     
               headerStyle: {
-                backgroundColor: "#A020F0",
+                backgroundColor: color.colortheme,
               },
-              headerTintColor: "white",
+              headerTintColor: color.forground,
               headerRight: () => (
-                <Button
-                  onPress={() => alert("This is filter button!")}
-                  title="filter"
-                  color="black"
-                />
+                <TouchableOpacity>
+                <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+              </TouchableOpacity>
               ),
             }}
       
@@ -95,15 +91,13 @@ export default function MainStack() {
               headerShadowVisible: false,
     
               headerStyle: {
-                backgroundColor: "#A020F0",
+                backgroundColor: color.colortheme,
               },
-              headerTintColor: "white",
+              headerTintColor: color.forground,
               headerRight: () => (
-                <Button
-                  onPress={() => alert("This is filter button!")}
-                  title="filter"
-                  color="black"
-                />
+                <TouchableOpacity>
+                <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+              </TouchableOpacity>
               ),
             }}
       
@@ -114,15 +108,13 @@ export default function MainStack() {
             headerShadowVisible: false,
   
             headerStyle: {
-              backgroundColor: "#A020F0",
+              backgroundColor: color.colortheme,
             },
-            headerTintColor: "white",
+            headerTintColor: color.forground,
             headerRight: () => (
-              <Button
-                onPress={() => alert("This is filter button!")}
-                title="filter"
-                color="black"
-              />
+              <TouchableOpacity>
+              <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+            </TouchableOpacity>
             ),
           }}
       />
@@ -134,15 +126,13 @@ export default function MainStack() {
           headerShadowVisible: false,
 
           headerStyle: {
-            backgroundColor: "#A020F0",
+            backgroundColor: color.colortheme,
           },
-          headerTintColor: "white",
+          headerTintColor: color.forground,
           headerRight: () => (
-            <Button
-              onPress={() => alert("This is filter button!")}
-              title="filter"
-              color="black"
-            />
+            <TouchableOpacity>
+            <AdjustmentsHorizontalIcon size={25} color={color.forground} />
+          </TouchableOpacity>
           ),
         }}
 

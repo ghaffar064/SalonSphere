@@ -5,7 +5,8 @@ import { Platform, Text, View, StyleSheet,Image,
 import Device from 'expo-device';
 import * as Location from 'expo-location';
 import { moderateScale } from 'react-native-size-matters';
-
+import color from '../constants/color';
+import { MapPinIcon} from "react-native-heroicons/outline";
 export default function GetLocation() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -44,7 +45,7 @@ export default function GetLocation() {
 
   return (
     <View style={{flexDirection:'row',padding:moderateScale(10)}}>
-      <Image source={imagePath.nearby } />
+      <MapPinIcon size={20} color={color.forground}/>
       <Text style={styles.paragraph} >{text}</Text>
     </View>
   );
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
   paragraph: {
    
     textAlign: 'center',
+    color:color.forground
     
     
     

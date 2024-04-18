@@ -8,6 +8,8 @@ import {
 } from "react-native-size-matters";
 import imagePath from '../constants/imagePath';
 import CustomizedTextInput from './CustomizedTextInput';
+import {MagnifyingGlassIcon,StarIcon,MicrophoneIcon} from  "react-native-heroicons/outline";
+import color from '../constants/color';
 
 export default function SearchBar({placeholder}) {
   return (
@@ -16,13 +18,18 @@ export default function SearchBar({placeholder}) {
     <View  style={styles.innerView} >
 
              <View style={styles.search}>
-             <Image source={imagePath.search} />
+             {/* <Image source={imagePath.search} /> */}
+             <MagnifyingGlassIcon size={22} color={color.forground}/>
          <TextInput style={styles.inlineStyle} 
            placeholder={placeholder}
            />     
              </View>
                
-             <Image source={imagePath.mic} style={{marginRight:moderateScale(5)}}/>
+             {/* <Image source={imagePath.mic} style={{marginRight:moderateScale(5)}}/> */}
+            
+            <TouchableOpacity style={{padding:moderateScale(5)}}>
+            <MicrophoneIcon size={20} color={color.forground} />
+            </TouchableOpacity>
 
       </View>
      

@@ -9,14 +9,17 @@ import {
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
+import color from '../../constants/color';
 
 export default function HairSalon() {
   return (
     <View style={{flex:1}}>
      <View style={{
         justifyContent:'center',
-        backgroundColor:'#A020F0',
-        padding:moderateVerticalScale(12),}}>
+        backgroundColor:color.colortheme,
+        padding:moderateVerticalScale(12),
+        borderBottomEndRadius:moderateScale(80)
+        }}>
     <SearchBar placeholder={"Search your salon"}/>
     
     </View>

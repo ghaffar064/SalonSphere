@@ -12,6 +12,7 @@ import {
   
   scale,
 } from "react-native-size-matters";
+import color from '../constants/color';
 
 export default function CustomizedButton({
   btnText,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(4),
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "black",
+    backgroundColor:color.colortheme,
   },
   btnTextStyle: {
     fontSize: scale(12),
