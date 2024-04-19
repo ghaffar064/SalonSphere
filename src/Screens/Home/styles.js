@@ -54,11 +54,7 @@ import color from '../../constants/color';
       
       fontSize:scale(15),
       color:color.textColor
-     
-     
-  
-  
-  
+    
     },
    
     locationview:{
@@ -72,7 +68,7 @@ import color from '../../constants/color';
       
     },
     buttons:{borderWidth:moderateScale(1),width:'45%',padding:moderateScale(30),alignItems:'center',justifyContent:'center',
-    borderRadius:moderateScale(100),margin:moderateScale(8),borderColor:color.background,color:'white',height:moderateVerticalScale(140)
+    borderRadius:moderateScale(60),margin:scale(8),borderColor:color.background,color:'white',height:scale(130)
     
 
 }
