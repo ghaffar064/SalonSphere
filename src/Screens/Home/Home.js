@@ -20,29 +20,37 @@ export default function Home({navigation}) {
         
         {name:'Hair Salon',
           imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.HAIRSALON
+          navigate:navigationStrings.HAIRSALON,
+          placeholder:"Search your hair salon"
+
         },
         
           {name:'Nail Salon',
-          imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.NAILSALON
+          imagePath:imagePath.nailsalon,
+          navigate:navigationStrings.NAILSALON,
+          placeholder:"Search your nail salon"
+
         },
 
           {name:'Makeup',
-          imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.MAKEUP
+          imagePath:imagePath.makeup,
+          navigate:navigationStrings.MAKEUP,
+          placeholder:"Search your makeup artist"
         },
           {name:'Skin Care',
-          imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.SKINCARE
+          imagePath:imagePath.skincare,
+          navigate:navigationStrings.SKINCARE,
+          placeholder:"Search skin care products"
         },
           {name:'Spa',
-          imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.SPA
+          imagePath:imagePath.spa,
+          navigate:navigationStrings.SPA,
+          placeholder:"Search your spa"
         },
           {name:'Home Service',
-          imagePath:imagePath.hairsalon,
-          navigate:navigationStrings.HOMESERVICE
+          imagePath:imagePath.homeservice,
+          navigate:navigationStrings.HOMESERVICE,
+          placeholder:"Search home service"
         },
                          
                         
@@ -64,7 +72,7 @@ export default function Home({navigation}) {
           
           </View>
           <TouchableOpacity onPress={()=>{navigation.navigate(navigationStrings.NOTIFICATION) }}>
-         <BellIcon size={30} color={color.colortheme} fill={color.forground}/>
+         <BellIcon size={30} color={color.background} fill={color.foreground}/>
           </TouchableOpacity>
          </View>
     
@@ -83,10 +91,12 @@ export default function Home({navigation}) {
             <TouchableOpacity style={styles.buttons}
       key={i}
       
-      onPress={()=>{navigation.navigate(data.navigate)}}
+      onPress={()=>{navigation.navigate(navigationStrings.CATEGORIES,{
+        data
+      })}}
       >
-        <Image source={data.imagePath}/>
-          <Text style={{color:color.forground}}>
+        <Image source={data.imagePath} style={{height:100,width:100}}/>
+          <Text style={{color:color.textColor}}>
            {data.name}
           </Text>
         </TouchableOpacity>

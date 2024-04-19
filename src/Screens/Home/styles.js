@@ -20,9 +20,9 @@ import color from '../../constants/color';
     view1:{
      
       justifyContent:'center',
-      backgroundColor:color.colortheme,
+      backgroundColor:color.background,
       padding:moderateVerticalScale(28),
-      backgroundColor:color.colortheme,
+      backgroundColor:color.background,
       borderBottomEndRadius:moderateScale(80)  
           
      
@@ -53,7 +53,7 @@ import color from '../../constants/color';
     userText:{
       
       fontSize:scale(15),
-      color:color.forground
+      color:color.textColor
      
      
   
@@ -67,11 +67,12 @@ import color from '../../constants/color';
     },
     headingText:{
         fontSize:scale(18),
-        color:color.forground
+        color:color.textColor,
+        fontStyle:'italic'
       
     },
-    buttons:{borderWidth:moderateScale(2),width:'45%',padding:moderateScale(30),alignItems:'center',justifyContent:'center',
-    borderRadius:moderateScale(35),margin:moderateScale(8),borderColor:color.colortheme,color:'white',height:moderateVerticalScale(140)
+    buttons:{borderWidth:moderateScale(1),width:'45%',padding:moderateScale(30),alignItems:'center',justifyContent:'center',
+    borderRadius:moderateScale(100),margin:moderateScale(8),borderColor:color.background,color:'white',height:moderateVerticalScale(140)
     
 
 }

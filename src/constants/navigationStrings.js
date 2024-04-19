@@ -11,10 +11,6 @@ export default {
   BOOKING:'Booking',
   PROFILE:'Profile',
   NOTIFICATION:'Notification',
-  NAILSALON:'NailSalon',
-  HAIRSALON:'HairSalon',
-  MAKEUP:'Makeup',
-  SKINCARE:"SkinCare",
-  SPA:'Spa',
-  HOMESERVICE:'HomeService'
+  SHOP:'Shop',
+  CATEGORIES:'Categories'
 };

@@ -45,7 +45,7 @@ export default function GetLocation() {
 
   return (
     <View style={{flexDirection:'row',padding:moderateScale(10)}}>
-      <MapPinIcon size={20} color={color.forground}/>
+      <MapPinIcon size={20} color={color.textColor}/>
       <Text style={styles.paragraph} >{text}</Text>
     </View>
   );
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   paragraph: {
    
     textAlign: 'center',
-    color:color.forground
+    color:color.textColor
     
     
     

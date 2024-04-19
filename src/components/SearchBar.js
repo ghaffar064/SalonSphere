@@ -19,7 +19,7 @@ export default function SearchBar({placeholder}) {
 
              <View style={styles.search}>
              {/* <Image source={imagePath.search} /> */}
-             <MagnifyingGlassIcon size={22} color={color.forground}/>
+             <MagnifyingGlassIcon size={22} color={color.textColor}/>
          <TextInput style={styles.inlineStyle} 
            placeholder={placeholder}
            />     
@@ -28,7 +28,7 @@ export default function SearchBar({placeholder}) {
              {/* <Image source={imagePath.mic} style={{marginRight:moderateScale(5)}}/> */}
             
             <TouchableOpacity style={{padding:moderateScale(5)}}>
-            <MicrophoneIcon size={20} color={color.forground} />
+            <MicrophoneIcon size={20} color={color.textColor} />
             </TouchableOpacity>
 
       </View>

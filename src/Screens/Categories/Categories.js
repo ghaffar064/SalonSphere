@@ -1,6 +1,7 @@
-import { View, Text,StyleSheet,ScrollView } from 'react-native'
+import { View, Text,StyleSheet } from 'react-native'
 import React from 'react'
 import SearchBar from '../../components/SearchBar'
+import Cards from '../../components/Cards/Cards';
 
 import {
   scale,
@@ -8,19 +9,25 @@ import {
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
-import Cards from '../../components/Cards/Cards';
 import color from '../../constants/color';
+import { useRoute } from '@react-navigation/native';
 
-export default function HomeService() {
+
+export default function Categories() {
+    const {
+        params:{
+                    data
+        }
+    } = useRoute();
   return (
-   <View style={{flex:1,}}>
+    <View style={{flex:1}}>
      <View style={{
         justifyContent:'center',
-        backgroundColor:color.colortheme,
+        backgroundColor:color.background,
         padding:moderateVerticalScale(12),
         borderBottomEndRadius:moderateScale(80)
         }}>
-    <SearchBar placeholder={"Search home service"}/>
+    <SearchBar placeholder={data.placeholder}/>
     
     </View>
     <Cards/>

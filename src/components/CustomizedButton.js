@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(4),
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:color.colortheme,
+    backgroundColor:color.background,
   },
   btnTextStyle: {
     fontSize: scale(12),

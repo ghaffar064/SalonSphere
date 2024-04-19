@@ -12,5 +12,10 @@ export default {
   salonpic:require('../assets/images/salonpic.jpg'),
   salonpic2:require('../assets/images/salonpic2.jpg'),
   hairsalon:require('../assets/images/hairsalon.png'),
+  nailsalon:require('../assets/images/nailsalon.png'),
+  makeup:require('../assets/images/makeup.png'),
+  skincare:require('../assets/images/skincare.png'),
+  spa:require('../assets/images/spa.jpg'),
+  homeservice:require('../assets/images/homeservice.png'),
 
 };

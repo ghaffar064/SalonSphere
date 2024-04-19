@@ -11,7 +11,7 @@ export default function TabRoutes() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: color.forground,
+        tabBarActiveTintColor: color.textColor,
         tabBarInactiveTintColor: "grey",
       }}
     >
@@ -21,7 +21,7 @@ export default function TabRoutes() {
           tabBarIcon: ({ focused }) => {
             return (
               <Image
-                style={{ tintColor: focused ? color.forground : "grey" }}
+                style={{ tintColor: focused ? color.textColor : "grey" }}
                 source={imagePath.home}
               />
             );
@@ -34,7 +34,7 @@ export default function TabRoutes() {
         options={{
           tabBarIcon: ({ focused }) => {
             return <Image 
-            style={{ tintColor: focused ? color.forground : "grey" }}
+            style={{ tintColor: focused ? color.textColor : "grey" }}
             source={imagePath.nearby} />;
           },
         }}
@@ -45,7 +45,7 @@ export default function TabRoutes() {
         options={{
           tabBarIcon: ({ focused }) => {
             return <Image 
-            style={{ tintColor: focused ? color.forground : "grey" }}
+            style={{ tintColor: focused ? color.textColor : "grey" }}
             source={imagePath.booking} />;
           },
         }}
@@ -59,7 +59,7 @@ export default function TabRoutes() {
           
           tabBarIcon: ({ focused }) => {
             return <Image 
-            style={{ tintColor: focused ? color.forground : "grey" }}
+            style={{ tintColor: focused ? color.textColor : "grey" }}
             source={imagePath.profile} />;  
           
           },
