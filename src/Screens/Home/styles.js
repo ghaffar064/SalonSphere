@@ -21,7 +21,7 @@ import color from '../../constants/color';
      
       justifyContent:'center',
       backgroundColor:color.background,
-      padding:moderateVerticalScale(28),
+      padding:moderateScale(28),
       backgroundColor:color.background,
       borderBottomEndRadius:moderateScale(80)  
           
@@ -33,7 +33,7 @@ import color from '../../constants/color';
       
      
       alignItems:'center',
-      padding:moderateVerticalScale(2),
+      padding:moderateScale(2),
     
      
       
