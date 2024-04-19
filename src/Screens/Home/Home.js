@@ -95,7 +95,7 @@ export default function Home({navigation}) {
         data
       })}}
       >
-        <Image source={data.imagePath} style={{height:100,width:100}}/>
+        <Image source={data.imagePath} style={{height:moderateVerticalScale(100),width:moderateScale(100)}}/>
           <Text style={{color:color.textColor}}>
            {data.name}
           </Text>
