@@ -5,6 +5,7 @@ import {
   moderateVerticalScale,
 } from "react-native-size-matters";
 import { StyleSheet } from "react-native";
+import color from "../../constants/color";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 
   loginTextStyle: {
     fontSize: scale(22),
-    color: "grey",
+    color: 'grey',
   },
   view2: {
     paddingHorizontal: moderateScale(24),

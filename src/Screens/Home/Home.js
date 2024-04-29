@@ -72,7 +72,7 @@ export default function Home({navigation}) {
                         ]
 
   return (
-    <SafeAreaView style = {styles.container} >
+    <View style = {styles.container} >
      <View style = {styles.view1}>
        
      
@@ -118,6 +118,6 @@ export default function Home({navigation}) {
     )}
      
      </View>
-    </SafeAreaView>
+    </View>
   )
 }
