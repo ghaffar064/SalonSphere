@@ -13,3 +13,7 @@ export { default as Notification } from "./Notification/Notification";
 export { default as Shop } from "./Shop/Shop";
 export { default as Categories } from "./Categories/Categories";
 
+// export { default as Services } from "./Screens/Services/Services";
+// export { default as Information } from "./Screens/Information/Information";
+// export { default as Reviews } from "./Screens/Reviews/Reviews";
+

@@ -1,5 +1,5 @@
 import { View, Text , TouchableOpacity,StyleSheet, SafeAreaView,Image,TextInput} from 'react-native'
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {
   scale,
   verticalScale,
@@ -15,42 +15,56 @@ import styles from './styles';
 import HomeScreenButtons from '../../components/HomeScreenButtons';
 import color from '../../constants/color';
 import {BellIcon} from "react-native-heroicons/outline";
+import {hairsalon,nailsalon} from '../../components/Dummydata';
 export default function Home({navigation}) {
-      const data= [
+  const [hairSalonData, setHairSalonData] = useState();
+  const [nailSalonData, setNailSalonData] = useState();
+  useEffect(() => {
+    setHairSalonData(hairsalon); 
+    setNailSalonData(nailsalon)
+  }, []);
+      const categories= [
         
         {name:'Hair Salon',
           imagePath:imagePath.hairsalon,
           navigate:navigationStrings.HAIRSALON,
-          placeholder:"Search your hair salon"
+          placeholder:"Search your hair salon",
+          data :hairSalonData
+          
 
         },
         
           {name:'Nail Salon',
           imagePath:imagePath.nailsalon,
           navigate:navigationStrings.NAILSALON,
-          placeholder:"Search your nail salon"
+          placeholder:"Search your nail salon",
+          data :nailSalonData
 
         },
 
           {name:'Makeup',
           imagePath:imagePath.makeup,
           navigate:navigationStrings.MAKEUP,
-          placeholder:"Search your makeup artist"
+          placeholder:"Search your makeup artist",
+          data :nailSalonData
         },
           {name:'Skin Care',
           imagePath:imagePath.skincare,
           navigate:navigationStrings.SKINCARE,
-          placeholder:"Search skin care products"
+          placeholder:"Search skin care products",
+          data :nailSalonData
         },
           {name:'Spa',
           imagePath:imagePath.spa,
           navigate:navigationStrings.SPA,
-          placeholder:"Search your spa"
+          placeholder:"Search your spa",
+          data :nailSalonData
         },
           {name:'Home Service',
           imagePath:imagePath.homeservice,
           navigate:navigationStrings.HOMESERVICE,
-          placeholder:"Search home service"
+          placeholder:"Search home service",
+          data :nailSalonData
         },
                          
                         
@@ -87,17 +101,17 @@ export default function Home({navigation}) {
 
      </View>
      <View style = {styles.view3}>
-     {data.map((data,i)=>
+     {categories.map((category,i)=>
             <TouchableOpacity style={styles.buttons}
       key={i}
       
       onPress={()=>{navigation.navigate(navigationStrings.CATEGORIES,{
-        data
+        category
       })}}
       >
-        <Image source={data.imagePath} style={{height:moderateVerticalScale(100),width:moderateScale(100)}}/>
+        <Image source={category.imagePath} style={{height:moderateVerticalScale(100),width:moderateScale(100)}}/>
           <Text style={{color:color.textColor}}>
-           {data.name}
+           {category.name}
           </Text>
         </TouchableOpacity>
     

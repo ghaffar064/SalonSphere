@@ -1,8 +1,8 @@
-import { NavigationContainer } from "@react-navigation/native";
+import TopTab from "./TopTab";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import navigationStrings from "../constants/navigationStrings";
-import { Booking, Home, NearBy, Profile } from "../Screens";
-import { Image,View,Text } from "react-native";
+import { Booking, Home, NearBy, Profile } from  '../Screens'; 
+import { Image} from "react-native";
 import imagePath from "../constants/imagePath";
 import color from "../constants/color";
 const Tab = createBottomTabNavigator();
@@ -15,6 +15,7 @@ export default function TabRoutes() {
         tabBarInactiveTintColor: "grey",
       }}
     >
+      
       <Tab.Screen
         name={navigationStrings.HOME}
         options={{

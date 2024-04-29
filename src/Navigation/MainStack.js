@@ -13,11 +13,12 @@ import {
   Spa,
   Shop,
   Categories
-} from "../Screens";
+} from '../Screens';
 
 import { View, Text, Button, TouchableOpacity } from "react-native";
 import color from "../constants/color";
 import {AdjustmentsHorizontalIcon,StarIcon} from "react-native-heroicons/outline";
+
 const Stack = createNativeStackNavigator();
 
 export default function MainStack() {
@@ -28,10 +29,11 @@ export default function MainStack() {
         component={TabRoutes}
         options={{ headerShown: false }}
       />
+     
       <Stack.Screen
         name={navigationStrings.NOTIFICATION}
         component={Notification}
-      />
+      />  
        <Stack.Screen
         name={navigationStrings.SHOP}
         component={Shop}

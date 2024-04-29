@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Signin, Signup, ForgotPassword, CodeVerification } from "../Screens";
+import { Signin, Signup, ForgotPassword, CodeVerification } from '../Screens';
 import navigationStrings from "../constants/navigationStrings";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";

@@ -8,5 +8,8 @@ import MainStack from "./MainStack";
 export default function Routes({login}) {
 
 
-  return <NavigationContainer>{login? MainStack():AuthStack()}</NavigationContainer>;
+  return <>
+        {login? MainStack():AuthStack()}
+
+  </>;
 }

@@ -1,4 +1,4 @@
-import { StyleSheet} from 'react-native'
+import { StyleSheet,Dimensions} from 'react-native'
 
 import {
   scale,
@@ -7,11 +7,19 @@ import {
   moderateVerticalScale,
 } from "react-native-size-matters";
 import color from '../../constants/color';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
+const deviceheight = Dimensions.get('window').height
+const deviceWidth = Dimensions.get('window').width
  const styles = StyleSheet.create({
 
     container:{
-      flex:1,
-      backgroundColor:'white'
+     
+      backgroundColor:'white',
+      flex:1
      
      
      
@@ -23,7 +31,9 @@ import color from '../../constants/color';
       backgroundColor:color.background,
       padding:moderateScale(28),
       backgroundColor:color.background,
-      borderBottomEndRadius:moderateScale(80)  
+      borderBottomEndRadius:moderateScale(80),
+     
+     
           
      
       
@@ -34,7 +44,8 @@ import color from '../../constants/color';
      
       alignItems:'center',
       padding:moderateScale(2),
-    
+      
+
      
       
 
@@ -45,6 +56,7 @@ import color from '../../constants/color';
       flexDirection:'row',
       justifyContent:'center',
       flexWrap:'wrap',
+      
    
       
 
@@ -67,8 +79,9 @@ import color from '../../constants/color';
         fontStyle:'italic'
       
     },
-    buttons:{borderWidth:moderateScale(1),width:'45%',padding:moderateScale(30),alignItems:'center',justifyContent:'center',
-    borderRadius:moderateScale(60),margin:scale(8),borderColor:color.background,color:'white',height:scale(130)
+    buttons:{borderWidth:moderateScale(1),width:'45%',alignItems:'center',justifyContent:'center',
+    borderRadius:moderateScale(20),margin:scale(8),
+    borderColor:color.background,color:'white'
     
 
 }

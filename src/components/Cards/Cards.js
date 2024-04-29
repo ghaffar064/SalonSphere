@@ -22,8 +22,8 @@ import color from "../../constants/color";
 
 import navigationStrings from "../../constants/navigationStrings";
 import { useNavigation } from "@react-navigation/native";
-import {data} from '../Dummydata'
-export default function Cards() {
+
+export default function Cards({data}) {
   const navigation = useNavigation();
   const [data1, setData1] = useState([])
 
@@ -45,7 +45,7 @@ export default function Cards() {
         renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate(navigationStrings.SHOP, { item });
+              navigation.navigate(navigationStrings.SHOP, { item});
             }}
           >
             <View
@@ -101,7 +101,7 @@ export default function Cards() {
                         color: color.textColor,
                       }}
                     >
-                      Nearby expo center
+                      {item.address}
                     </Text>
                   </View>
                 </View>

@@ -16,9 +16,10 @@ import { useRoute } from '@react-navigation/native';
 export default function Categories() {
     const {
         params:{
-                    data
+                    category
         }
     } = useRoute();
+   
   return (
     <View style={{flex:1}}>
      <View style={{
@@ -27,10 +28,10 @@ export default function Categories() {
         padding:moderateVerticalScale(12),
         borderBottomEndRadius:moderateScale(80)
         }}>
-    <SearchBar placeholder={data.placeholder}/>
+    <SearchBar placeholder={category.placeholder}/>
     
     </View>
-    <Cards/>
+    <Cards data ={category.data}/>
    </View>
   )
 }
