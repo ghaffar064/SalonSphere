@@ -3,15 +3,10 @@ import * as React from "react";
 import navigationStrings from "../constants/navigationStrings";
 import TabRoutes from "./TabRoutes";
 import {
-  HairSalon,
+
   Home,
-  HomeService,
-  Makeup,
-  NailSalon,
   Notification,
-  SkinCare,
-  Spa,
-  Shop,
+   Shop,
   Categories
 } from '../Screens';
 
@@ -24,6 +19,11 @@ const Stack = createNativeStackNavigator();
 export default function MainStack() {
   return (
     <Stack.Navigator>
+       <Stack.Screen
+        name={navigationStrings.HOME}
+        component={Home}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name={navigationStrings.TABROUTES}
         component={TabRoutes}

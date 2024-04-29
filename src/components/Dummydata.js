@@ -60,6 +60,48 @@ export const hairsalon =[
       image: imagePath.salonpic2,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
       
     },
     {
@@ -68,6 +110,48 @@ export const hairsalon =[
       image: imagePath.salonpic,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
        
     },
     {
@@ -76,6 +160,48 @@ export const hairsalon =[
       image: imagePath.salonpic,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
   
     },
     {
@@ -84,6 +210,48 @@ export const hairsalon =[
       image: imagePath.profile,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
   
     },
   ]
@@ -95,6 +263,49 @@ export const hairsalon =[
       address:'expo center',
 
       fillheart: false,
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
+
 
     },
     {
@@ -103,6 +314,48 @@ export const hairsalon =[
       image: imagePath.salonpic2,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
       
     
     },
@@ -112,6 +365,48 @@ export const hairsalon =[
       image: imagePath.salonpic,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
     
     },
     {
@@ -120,6 +415,48 @@ export const hairsalon =[
       image: imagePath.salonpic,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
     },
     {
       name: "salon1",
@@ -127,6 +464,48 @@ export const hairsalon =[
       image: imagePath.profile,
       fillheart: false,
       address:'expo center',
+      services: [
+        {
+          type: "Hair Cut",
+          options: [
+            {
+              name: "Long Hair Cut",
+              price: "Rs. 1000000"
+            },
+            {
+              name: "Short Hair Cut",
+              price: "Rs. 800"
+            },
+            {
+              name: "Medium Hair Cut",
+              price: "Rs. 200"
+            },
+            
+          ]
+        },
+        {
+          type: "Hair Styling",
+          options: [
+            {
+              name: "Blow Dry",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+        {
+          type: "Nail Treatment",
+          options: [
+            {
+              name: "Keratin",
+              price: "Rs. 800"
+            },
+           
+          ]
+        },
+       
+      ]
+
   
     },
   ]

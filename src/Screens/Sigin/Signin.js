@@ -12,14 +12,13 @@ import navigationStrings from "../../constants/navigationStrings";
 
 
 
-  export  function Signin({ navigation }) {
+  export  function Signin({ navigation, onSignIn  }) {
    
 
-      function handleSignin()
-      {
-        setlogin(true)
-        navigation.navigate(navigationStrings.HOME)
-      }
+    const handleSignin = () => {
+      onSignIn(); 
+      navigation.navigate(navigationStrings.HOME); 
+    };
   
  
   const [notvisible, setNotVisible] = useState(true);

@@ -5,11 +5,11 @@ import MainStack from "./MainStack";
 
 
 
-export default function Routes({login}) {
+export default function Routes({login, onSignIn }) {
 
 
   return <>
-        {login? MainStack():AuthStack()}
+        {login? <MainStack/>:<AuthStack onSignIn={onSignIn}/>}
 
   </>;
 }
