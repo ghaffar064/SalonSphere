@@ -17,7 +17,7 @@ import navigationStrings from "../../constants/navigationStrings";
 
     const handleSignin = () => {
       onSignIn(); 
-      navigation.navigate(navigationStrings.HOME); 
+      navigation.navigate(navigationStrings.TABROUTES); 
     };
   
  
