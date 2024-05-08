@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Button } from "react-native";
 import React, { useState } from "react";
 import color from "../../constants/color";
 import {
@@ -10,8 +10,46 @@ import RadioButtonRN from "radio-buttons-react-native";
 
 export default function Services({ route }) {
   const { services } = route.params;
-  const [selected, setSelected] = useState([]);
-  console.log(selected);
+  const [selected, setSelected] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const toggleOption = (serviceType, optionName, optionPrice) => {
+    const isSelected =
+      selected[serviceType] &&
+      selected[serviceType].name === optionName &&
+      selected[serviceType].price === optionPrice;
+
+    if (isSelected) {
+      setSelected((prevState) => ({
+        ...prevState,
+        [serviceType]: null,
+      }));
+    } else {
+      setSelected((prevState) => ({
+        ...prevState,
+        [serviceType]: { name: optionName, price: optionPrice },
+      }));
+    }
+  };
+
+  const isSelected = (serviceType, optionName, optionPrice) => {
+    return (
+      selected[serviceType] &&
+      selected[serviceType].name === optionName &&
+      selected[serviceType].price === optionPrice
+    );
+  };
+
+  // Calculate total price
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    for (const serviceType in selected) {
+      if (selected.hasOwnProperty(serviceType) && selected[serviceType]) {
+        totalPrice += selected[serviceType].price;
+      }
+    }
+    setTotalPrice(totalPrice);
+  };
 
   return (
     <ScrollView style={{ marginTop: moderateScale(10) }}>
@@ -53,7 +91,7 @@ export default function Services({ route }) {
                 <View style={{ width: "10%" }}>
                   <TouchableOpacity
                     onPress={() =>
-                      setSelected([service.type, option.name, option.price])
+                      toggleOption(service.type, option.name, option.price)
                     }
                   >
                     <View
@@ -65,13 +103,11 @@ export default function Services({ route }) {
                         borderRadius: 20,
                       }}
                     >
-                      {selected.toString() ===
-                      [service.type, option.name, option.price].toString() ? (
+                      {isSelected(service.type, option.name, option.price) ? (
                         <View
                           style={{
                             backgroundColor: color.background,
                             width: 22,
-
                             height: 22,
                             borderRadius: 20,
                             margin: 2,
@@ -86,6 +122,8 @@ export default function Services({ route }) {
           </View>
         </View>
       ))}
+      {/* <Button title="Calculate Total Price" onPress={calculateTotalPrice} />
+      <Text>Total Price: {totalPrice}</Text> */}
     </ScrollView>
   );
 }
