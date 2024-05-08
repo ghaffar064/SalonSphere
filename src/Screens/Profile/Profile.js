@@ -8,9 +8,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+
+import navigationStrings from "../../constants/navigationStrings";
 import styles from "./styles"; // Import styles as default
 
-export default function Profile() {
+export default function Profile({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.view1}>
@@ -38,7 +40,9 @@ export default function Profile() {
       <View style={styles.additionalTextContainer}>
         <TouchableOpacity
           style={styles.additionalTextView}
-          onPress={() => console.log("My Account clicked")}
+          onPress={() => {
+            navigation.navigate(navigationStrings.MYACCONT);
+          }}
         >
           <Icon name="user" size={25} style={styles.ProfileIcon} />
           <Text style={styles.additionalText}>My Account</Text>
