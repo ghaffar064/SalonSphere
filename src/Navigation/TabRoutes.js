@@ -5,8 +5,10 @@ import { Booking, Home, NearBy, Profile } from  '../Screens';
 import { Image} from "react-native";
 import imagePath from "../constants/imagePath";
 import color from "../constants/color";
+
 const Tab = createBottomTabNavigator();
-export default function TabRoutes() {
+export default function TabRoutes({nailsalon,hairsalon,permissionStatus}) {
+  
   return (
     <Tab.Navigator
       screenOptions={{
@@ -16,31 +18,37 @@ export default function TabRoutes() {
       }}
     >
       
-      <Tab.Screen
-        name={navigationStrings.HOME}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Image
-                style={{ tintColor: focused ? color.textColor : "grey" }}
-                source={imagePath.home}
-              />
-            );
-          },
-        }}
-        component={Home}
-      />
-      <Tab.Screen
-        name={navigationStrings.NEARBY}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return <Image 
-            style={{ tintColor: focused ? color.textColor : "grey" }}
-            source={imagePath.nearby} />;
-          },
-        }}
-        component={NearBy}
-      />
+     
+      <Tab.Screen name={navigationStrings.HOME}
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+            <Image
+              style={{ tintColor: focused ? color.textColor : "grey" }}
+              source={imagePath.home}
+            />
+          );
+        },
+      }}
+      >
+          {(props) => <Home {...props} nailsalon={nailsalon} hairsalon={hairsalon} permissionStatus={permissionStatus} />}
+        </Tab.Screen>
+        <Tab.Screen name={navigationStrings.NEARBY}
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+            <Image
+              style={{ tintColor: focused ? color.textColor : "grey" }}
+              source={imagePath.nearby}
+            />
+          );
+        },
+      }}
+      >
+          {(props) => <NearBy {...props} nailsalon={nailsalon} hairsalon={hairsalon} permissionStatus={permissionStatus} />}
+        </Tab.Screen>
+      
+     
       <Tab.Screen
         name={navigationStrings.BOOKING}
         options={{

@@ -65,7 +65,7 @@ const deviceWidth = Dimensions.get('window').width
     userText:{
       
       fontSize:scale(15),
-      color:color.textColor
+      color:'white'
     
     },
    

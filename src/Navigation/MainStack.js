@@ -16,7 +16,8 @@ import {AdjustmentsHorizontalIcon,StarIcon} from "react-native-heroicons/outline
 
 const Stack = createNativeStackNavigator();
 
-export default function MainStack() {
+export default function MainStack({hairsalon,nailsalon,permissionStatus}) {
+ 
   return (
     <Stack.Navigator>
        <Stack.Screen
@@ -24,12 +25,15 @@ export default function MainStack() {
         component={Home}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+       {/* <Stack.Screen
         name={navigationStrings.TABROUTES}
         component={TabRoutes}
         options={{ headerShown: false }}
-      />
-     
+      /> */}
+      <Stack.Screen  name={navigationStrings.TABROUTES} options={{ headerShown: false }}>
+
+          {(props) => <TabRoutes {...props}  nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus}  />}
+        </Stack.Screen>
       <Stack.Screen
         name={navigationStrings.NOTIFICATION}
         component={Notification}

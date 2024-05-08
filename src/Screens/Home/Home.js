@@ -15,8 +15,10 @@ import styles from './styles';
 import HomeScreenButtons from '../../components/HomeScreenButtons';
 import color from '../../constants/color';
 import {BellIcon} from "react-native-heroicons/outline";
-import {hairsalon,nailsalon} from '../../components/Dummydata';
-export default function Home({navigation}) {
+// import {hairsalon,nailsalon} from '../../components/Dummydata';
+export default function Home({navigation,nailsalon,hairsalon,permissionStatus}) {
+  
+ 
   const [hairSalonData, setHairSalonData] = useState();
   const [nailSalonData, setNailSalonData] = useState();
   useEffect(() => {
@@ -80,7 +82,7 @@ export default function Home({navigation}) {
          <View>
           <Text style = {styles.userText}>Hii Ghaffar, Lahore</Text>
          
-          <GetLocation/>
+          <GetLocation permissionStatus={permissionStatus}/>
        
          
           

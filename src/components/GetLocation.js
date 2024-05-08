@@ -1,42 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet,Image,
- } from 'react-native';
- import imagePath from '../constants/imagePath';
-import Device from 'expo-device';
-import * as Location from 'expo-location';
 import { moderateScale } from 'react-native-size-matters';
 import color from '../constants/color';
 import { MapPinIcon} from "react-native-heroicons/outline";
-export default function GetLocation() {
+import { userLocation } from './UserLocation';
+import React, { useState, useEffect } from 'react';
+import { Platform, Text, View, StyleSheet,Image,} from 'react-native';
+
+export default function GetLocation({permissionStatus}) {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState('');
 
   useEffect(() => {
-    (async () => {
-    
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-      let reversegeoCode = await Location.reverseGeocodeAsync(
-        {
-          longitude:location.coords.longitude,
-          latitude:location.coords.latitude
+    const getLocation = async () => {
+      const { location, address,permissionStatus } = await userLocation();
+      // permissionStatus1=permissionStatus;
+      if (permissionStatus === 'granted') {
+        try {
+         
+          setLocation(location);
+          setAddress(`${address[0].name}, ${address[0].city}`);
+        } catch (error) {
+          setErrorMsg('Permission denied');
         }
-      )
-      setAddress(`${reversegeoCode[0].name}, ${reversegeoCode[0].city}`);
-
-      
-      
-    })();
-  }, []);
-
-  let text = 'waiting..';
+      } else {
+        setErrorMsg('Permission denied');
+      }
+    };
+    getLocation();
+  }, [permissionStatus]);
+  let text = 'Waiting...';
   if (errorMsg) {
     text = errorMsg;
   } else if (location) {
@@ -44,19 +36,18 @@ export default function GetLocation() {
   }
 
   return (
-    <View style={{flexDirection:'row',padding:moderateScale(10)}}>
-      <MapPinIcon size={20} color={color.textColor}/>
-      <Text style={styles.paragraph} >{text}</Text>
+    <View style={{ flexDirection: 'row', padding: moderateScale(10) }}>
+      <MapPinIcon size={20} color="white" />
+      <Text style={styles.paragraph}>{text}</Text>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
  
   paragraph: {
    
     textAlign: 'center',
-    color:color.textColor
+    color:'white'
     
     
     

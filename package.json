@@ -26,6 +26,7 @@
     "react-native": "0.73.5",
     "react-native-animatable": "^1.4.0",
     "react-native-heroicons": "^4.0.0",
+    "react-native-maps": "^1.14.0",
     "react-native-otp-entry": "^1.6.0",
     "react-native-pager-view": "6.2.3",
     "react-native-paper": "^5.12.3",
