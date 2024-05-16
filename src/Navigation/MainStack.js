@@ -13,7 +13,10 @@ import {
 
 const Stack = createNativeStackNavigator();
 
-export default function MainStack({hairsalon,nailsalon,permissionStatus}) {
+export default function MainStack({hairsalon,nailsalon,permissionStatus,setPermissionStatus,
+
+  location,setLocation,address,setAddress
+}) {
  
   return (
     <Stack.Navigator>
@@ -30,7 +33,12 @@ export default function MainStack({hairsalon,nailsalon,permissionStatus}) {
       /> */}
       <Stack.Screen  name={navigationStrings.TABROUTES} options={{ headerShown: false }}>
 
-          {(props) => <TabRoutes {...props}  nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus}  />}
+          {(props) => <TabRoutes {...props}  nailsalon = {nailsalon} 
+          
+          hairsalon = {hairsalon} permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
+          location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+          
+          />}
         </Stack.Screen>
 
       
@@ -39,6 +47,15 @@ export default function MainStack({hairsalon,nailsalon,permissionStatus}) {
       <Stack.Screen
         name={navigationStrings.NOTIFICATION}
         component={Notification}
+        options={{
+          
+          headerShadowVisible: false,
+
+          headerStyle: {
+            backgroundColor: color.background,
+          },
+          headerTintColor: color.foreground,
+        }}
       />
 
       <Stack.Screen

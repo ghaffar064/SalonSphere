@@ -5,27 +5,23 @@ import { userLocation } from './UserLocation';
 import React, { useState, useEffect } from 'react';
 import { Platform, Text, View, StyleSheet,Image,} from 'react-native';
 
-export default function GetLocation({permissionStatus}) {
-  const [location, setLocation] = useState(null);
+export default function GetLocation({permissionStatus,setPermissionStatus,location,setLocation,address,setAddress}) {
+
   const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState('');
+
+
 
   useEffect(() => {
     const getLocation = async () => {
-      const { location, address,permissionStatus } = await userLocation();
-      // permissionStatus1=permissionStatus;
+      const { location, address,permissionStatus1 } = await userLocation();
+      setPermissionStatus(permissionStatus1)
+      
       if (permissionStatus === 'granted') {
-        try {
-         
-          setLocation(location);
+        setLocation(location);
           setAddress(`${address[0].name}, ${address[0].city}`);
-        } catch (error) {
-          setErrorMsg('Permission denied');
-        }
-      } else {
-        setErrorMsg('Permission denied');
       }
-    };
+     
+            };
     getLocation();
   }, [permissionStatus]);
   let text = 'Waiting...';

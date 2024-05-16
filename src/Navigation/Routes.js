@@ -5,12 +5,20 @@ import MainStack from "./MainStack";
 
 
 
-export default function Routes({login, onSignIn,nailsalon,hairsalon,permissionStatus }) {
+export default function Routes({login, onSignIn,nailsalon,hairsalon,permissionStatus, setPermissionStatus,
+    location,setLocation,address,setAddress
+
+ }) {
  
 
 
   return <>
-        {login? <MainStack nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus}/>:<AuthStack onSignIn={onSignIn} />}
+        {login? <MainStack nailsalon = {nailsalon} hairsalon = {hairsalon}
+        
+        permissionStatus={permissionStatus}
+        location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+        
+        setPermissionStatus={setPermissionStatus}/>:<AuthStack onSignIn={onSignIn} />}
 
   </>;
 }

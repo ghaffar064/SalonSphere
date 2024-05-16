@@ -10,12 +10,19 @@ export default function App() {
   const handleSignIn = () => {
     setLogin(true);
   };
-  const [permissionStatus, setPermissionStatus] = useState(null);
+  const [permissionStatus, setPermissionStatus] = useState('');
+  const [location, setLocation] = useState(null);
+    
+  const [address, setAddress] = useState('');
+  
 
  
   return (
     <NavigationContainer>
-      <Routes login={login}  onSignIn={handleSignIn} nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus}/>
+      <Routes login={login}  onSignIn={handleSignIn} nailsalon = {nailsalon}
+       hairsalon = {hairsalon} 
+       location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+       permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}/>
    
     </NavigationContainer>
   );

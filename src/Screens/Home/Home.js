@@ -1,8 +1,7 @@
 import { View, Text , TouchableOpacity,StyleSheet, SafeAreaView,Image,TextInput} from 'react-native'
 import React,{useState,useEffect} from 'react'
 import {
-  scale,
-  verticalScale,
+ 
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
@@ -12,11 +11,14 @@ import navigationStrings from '../../constants/navigationStrings';
 import CustomizedTextInput from '../../components/CustomizedTextInput'
 import SearchBar from '../../components/SearchBar';
 import styles from './styles';
-import HomeScreenButtons from '../../components/HomeScreenButtons';
+
 import color from '../../constants/color';
 import {BellIcon} from "react-native-heroicons/outline";
-// import {hairsalon,nailsalon} from '../../components/Dummydata';
-export default function Home({navigation,nailsalon,hairsalon,permissionStatus}) {
+
+export default function Home({navigation,nailsalon,hairsalon,permissionStatus,setPermissionStatus,
+location,setLocation,address,setAddress
+
+}) {
   
  
   const [hairSalonData, setHairSalonData] = useState();
@@ -82,7 +84,10 @@ export default function Home({navigation,nailsalon,hairsalon,permissionStatus}) 
          <View>
           <Text style = {styles.userText}>Hii Ghaffar, Lahore</Text>
          
-          <GetLocation permissionStatus={permissionStatus}/>
+          <GetLocation permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
+            location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+          
+          />
        
          
           

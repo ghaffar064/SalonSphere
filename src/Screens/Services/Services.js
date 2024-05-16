@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, TouchableOpacity, Button } from "react-native";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import color from "../../constants/color";
 import {
   moderateScale,
@@ -11,7 +11,8 @@ import RadioButtonRN from "radio-buttons-react-native";
 export default function Services({ route }) {
   const { services } = route.params;
   const [selected, setSelected] = useState({});
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState();
+
 
   const toggleOption = (serviceType, optionName, optionPrice) => {
     const isSelected =
@@ -41,15 +42,20 @@ export default function Services({ route }) {
   };
 
   // Calculate total price
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-    for (const serviceType in selected) {
-      if (selected.hasOwnProperty(serviceType) && selected[serviceType]) {
-        totalPrice += selected[serviceType].price;
-      }
-    }
-    setTotalPrice(totalPrice);
-  };
+  // useEffect(() => {
+  //   const calculateTotalPrice = () => {
+  //     let totalPrice = 0;
+  //     for (const serviceType in selected) {
+  //       if (selected.hasOwnProperty(serviceType) && selected[serviceType]) {
+  //         totalPrice += selected[serviceType].price;
+  //       }
+  //     }
+  //     setTotalPrice(totalPrice);
+  //   };
+  
+   
+  // }, [])
+  
 
   return (
     <ScrollView style={{ marginTop: moderateScale(10) }}>
@@ -122,8 +128,7 @@ export default function Services({ route }) {
           </View>
         </View>
       ))}
-      {/* <Button title="Calculate Total Price" onPress={calculateTotalPrice} />
-      <Text>Total Price: {totalPrice}</Text> */}
+     
     </ScrollView>
   );
 }

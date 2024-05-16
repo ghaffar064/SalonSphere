@@ -125,7 +125,7 @@ export default function Booking() {
               <View style={styles.locationContainer}>
                 <Icon
                   name="map-marker"
-                  size={30}
+                  size={20}
                   color="grey"
                   style={styles.locationIcon}
                 />

@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
   view1: {
     backgroundColor: color.background,
     borderBottomEndRadius: moderateScale(80),
-    paddingBottom: moderateVerticalScale(20),
+    padding: moderateScale(28),
   },
   textHeading: {
-    paddingTop: moderateScale(20),
+
     paddingLeft: moderateScale(20),
     color: "white",
     fontWeight: "bold",
@@ -55,24 +55,24 @@ const styles = StyleSheet.create({
 
   itemContainer: {
     flexDirection: "row",
-    borderWidth: 0.4,
-    borderRadius: moderateScale(10),
+    borderWidth:.3,
+    borderRadius: moderateScale(3),
     margin: moderateScale(10),
     backgroundColor: "white",
+
   },
 
   imageContainer: {
-    width: moderateScale("30%"), // Cover the first 30% of the item container's width
+    
     justifyContent: "center", // Center the image vertically
     alignItems: "center", // Center the image horizontally
+    
   },
+
   image: {
-    height: moderateScale(100),
-    width: moderateScale(150),
-  },
-  textView: {
-    flex: 1,
-    paddingLeft: moderateScale(10), // Add padding for spacing
+    height: moderateVerticalScale(120),
+    width: moderateScale(120),
+    
   },
 
   itemTextName: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     marginRight: moderateScale(5),
   },
   LocationitemText: {
-    fontSize: scale(15),
+    fontSize: scale(12),
     color: "grey",
   },
 
@@ -101,8 +101,9 @@ const styles = StyleSheet.create({
   buttonView: {
     flex: 1,
     flexDirection: "row",
+   
     paddingTop: moderateScale(10),
-    padding: moderateScale(10),
+    paddingBottom: moderateScale(10),
   },
   buttonTextD: {
     fontSize: scale(10),
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
 
   button: {
     borderRadius: moderateScale(5),
-    borderWidth: 0.3,
+    borderWidth: moderateScale(0.3),
     backgroundColor: "white",
     height: moderateScale(40), // Adjust button height as needed
     width: moderateScale(100),

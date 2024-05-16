@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import color from '../../constants/color';
 import SearchBar from '../../components/SearchBar'
@@ -12,10 +12,13 @@ import * as Location from 'expo-location';
 import MapView, { Marker,Callout } from 'react-native-maps';
 import Map from '../../components/Map';
 
-export default function NearBy({nailsalon,hairsalon,permissionStatus}) {
+export default function NearBy({nailsalon,hairsalon,permissionStatus,setPermissionStatus,location
+
+  ,setLocation,address,setAddress
+}) {
   
   return (
-    <View style={{flex:1}}>
+    <SafeAreaView style={{flex:1}}>
      
     <View style={{
        justifyContent:'center',
@@ -33,10 +36,12 @@ export default function NearBy({nailsalon,hairsalon,permissionStatus}) {
    
    </View>
       
-   <Map nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus} />
+   <Map nailsalon = {nailsalon} hairsalon = {hairsalon} permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
+      location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+   />
 
       
   
-  </View>
+  </SafeAreaView>
   )
 }

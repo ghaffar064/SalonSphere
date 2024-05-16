@@ -7,7 +7,10 @@ import imagePath from "../constants/imagePath";
 import color from "../constants/color";
 
 const Tab = createBottomTabNavigator();
-export default function TabRoutes({nailsalon,hairsalon,permissionStatus}) {
+export default function TabRoutes({nailsalon,hairsalon,permissionStatus,setPermissionStatus,
+
+  location,setLocation,address,setAddress
+}) {
   
   return (
     <Tab.Navigator
@@ -31,7 +34,11 @@ export default function TabRoutes({nailsalon,hairsalon,permissionStatus}) {
         },
       }}
       >
-          {(props) => <Home {...props} nailsalon={nailsalon} hairsalon={hairsalon} permissionStatus={permissionStatus} />}
+          {(props) => <Home {...props} nailsalon={nailsalon} hairsalon={hairsalon} 
+          
+          permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
+          location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+          />}
         </Tab.Screen>
         <Tab.Screen name={navigationStrings.NEARBY}
       options={{
@@ -45,7 +52,10 @@ export default function TabRoutes({nailsalon,hairsalon,permissionStatus}) {
         },
       }}
       >
-          {(props) => <NearBy {...props} nailsalon={nailsalon} hairsalon={hairsalon} permissionStatus={permissionStatus} />}
+          {(props) => <NearBy {...props} nailsalon={nailsalon}
+           hairsalon={hairsalon} permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
+           location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+           />}
         </Tab.Screen>
       
      

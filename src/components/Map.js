@@ -22,31 +22,41 @@ import { userLocation } from './UserLocation';
 
 
 
-export default function Map({nailsalon,hairsalon,permissionStatus}) {
+export default function Map({nailsalon,hairsalon,permissionStatus,setPermissionStatus,
+  setAddress,setLocation,address,location}) {
 
     const navigation = useNavigation();
     const [data, setData] = useState([])
-    const [location, setLocation] = useState(null);
     
-    const [address, setAddress] = useState();
+ 
     
     useEffect(() => {
       const getLocation = async () => {
-        if (permissionStatus === 'granted') {
-          try {
-            const { location, address } = await userLocation();
-            setLocation(location);
-            setAddress(`${address[0].name}, ${address[0].city}`);
-          } catch (error) {
-            setErrorMsg('Permission denied');
+        try {
+          if (permissionStatus === 'granted') {
+            if (location && address) {
+              setLocation(location);
+              setAddress(`${address[0].name}, ${address[0].city}`);
+            } else {
+              setErrorMsg('Location data is missing.');
+            }
+          } else {
+            const { location: loc, address: addr, permissionStatus1 } = await userLocation();
+            setPermissionStatus(permissionStatus1);
+            if (permissionStatus === 'granted') {
+              setLocation(loc);
+              setAddress(`${addr[0].name}, ${addr[0].city}`);
+            } else {
+              setErrorMsg('Permission denied');
+            }
           }
-        } else {
-          setErrorMsg('Permission denied');
+        } catch (error) {
+          setErrorMsg('An error occurred while fetching location');
         }
       };
       getLocation();
     }, [permissionStatus]);
-    useEffect(() => {
+  useEffect(() => {
         const mergedData = [...nailsalon, ...hairsalon];
      setData(mergedData)
     }, [])

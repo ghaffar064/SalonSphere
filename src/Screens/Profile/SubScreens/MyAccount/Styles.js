@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   profileImageContainer: {
     position: "absolute",
     top: moderateScale(50),
-    left: moderateScale(150),
+    left: moderateScale(100),
     alignItems: "center",
     zIndex: 1,
   },
