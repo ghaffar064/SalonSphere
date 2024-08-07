@@ -6,6 +6,7 @@ import { ArrowLeftIcon, StarIcon, MapPinIcon, PhoneIcon, ChatBubbleLeftEllipsisI
 import color from "../../constants/color";
 import TopTab from "../../Navigation/TopTab";
 import Services from "../Services/Services";
+import BookNowButton from "../../components/BookNowButton/BookNowButton";
 
 
 export default function Shop() {
@@ -19,7 +20,11 @@ export default function Shop() {
   }, []);
 
   return (
+    <>
+   
     <SafeAreaView style={{ flex: 1 }}>
+     
+     
       <View style={{ flex: 1 }}>
         <View
           style={{
@@ -86,13 +91,15 @@ export default function Shop() {
             <Text>{item.address}</Text>
           </View>
         </View>
-        {/* Include the TopTab component here */}
+       
         <TopTab 
-            // type={item.services.type} 
+           
         services={item.services}
         />
-       
+        <BookNowButton/>
       </View>
+    
     </SafeAreaView>
+    </>
   );
 }

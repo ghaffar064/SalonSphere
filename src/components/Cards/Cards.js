@@ -112,7 +112,7 @@ export default function Cards({data}) {
                 style={{ flex: 0.1, paddingVertical: moderateVerticalScale(5) }}
               >
                 {item.fillheart ? (
-                  <HeartIcon size={20} color="grey" fill={color.foreground} />
+                  <HeartIcon size={20} color="grey" fill={color.background} />
                 ) : (
                   <HeartIcon size={20} color="grey" />
                 )}

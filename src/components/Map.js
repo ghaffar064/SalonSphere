@@ -1,4 +1,4 @@
-import { View, Text,FlatList,TouchableOpacity,Image } from 'react-native'
+import { View, Text,FlatList,TouchableOpacity,Image,Linking } from 'react-native'
 import React, { useState,useEffect } from "react";
 import {
   scale,
@@ -19,39 +19,81 @@ import * as Location from 'expo-location';
 import MapView, { Marker,Callout } from 'react-native-maps';
 import Cards from './Cards/Cards'
 import { userLocation } from './UserLocation';
+const haversineDistance = (coords1, coords2) => {
+  const toRad = x => (x * Math.PI) / 180;
+  const R = 6371; // Radius of the Earth in km
+
+  const dLat = toRad(coords2.latitude - coords1.latitude);
+  const dLon = toRad(coords2.longitude - coords1.longitude);
+  const lat1 = toRad(coords1.latitude);
+  const lat2 = toRad(coords2.latitude);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distance in km
+};
 
 
 
 export default function Map({nailsalon,hairsalon,permissionStatus,setPermissionStatus,
   setAddress,setLocation,address,location}) {
+    
+    
 
     const navigation = useNavigation();
     const [data, setData] = useState([])
-    
- 
+    const [mapRegion,setMapRegion] = useState({
+      latitude:37.7,
+      longitude:-122,
+      latitudeDelta: 0.005,
+      longitudeDelta: 0.005,
+      
+     
+    }
+    );
+   
     
     useEffect(() => {
       const getLocation = async () => {
-        try {
-          if (permissionStatus === 'granted') {
-            if (location && address) {
+        if (permissionStatus !== 'granted') {
+          try {
+            const { location, address, permissionStatus1 } = await userLocation();
+            setPermissionStatus(permissionStatus1);
+            
+  
+            if (permissionStatus1 === 'granted') {
               setLocation(location);
               setAddress(`${address[0].name}, ${address[0].city}`);
-            } else {
-              setErrorMsg('Location data is missing.');
+              setMapRegion({
+                latitude:location.coords.latitude,
+                longitude:location.coords.longitude,
+                latitudeDelta: 0.005,
+                longitudeDelta: 0.005,
+      });
             }
-          } else {
-            const { location: loc, address: addr, permissionStatus1 } = await userLocation();
-            setPermissionStatus(permissionStatus1);
-            if (permissionStatus === 'granted') {
-              setLocation(loc);
-              setAddress(`${addr[0].name}, ${addr[0].city}`);
-            } else {
-              setErrorMsg('Permission denied');
-            }
+          } catch (error) {
+            console.log(error);
           }
+        } else{
+        try {
+          
+         
+          setMapRegion({
+            latitude:location.coords.latitude,
+            longitude:location.coords.longitude,
+            latitudeDelta: 0.005,
+            longitudeDelta: 0.005,
+      
+      
+          });
+         
+
         } catch (error) {
-          setErrorMsg('An error occurred while fetching location');
+          
+        }
         }
       };
       getLocation();
@@ -60,100 +102,165 @@ export default function Map({nailsalon,hairsalon,permissionStatus,setPermissionS
         const mergedData = [...nailsalon, ...hairsalon];
      setData(mergedData)
     }, [])
+  useEffect(() => {
    
-console.log("from map",address)
+      const mergedData = [...nailsalon, ...hairsalon];
+      // Convert coordinates from strings to numbers
+      const formattedData = mergedData.map(item => ({
+        ...item,
+        latitude: parseFloat(item.location.latitude),
+        longitude: parseFloat(item.location.longitude)
+      }));
+      // Filter salons within 1km radius
+      
+      if (location)
+      {
+        const nearbySalons = formattedData.filter(item => {
+          const distance = haversineDistance(location.coords, { latitude: item.latitude, longitude: item.longitude });
+          return distance <= 1; // Distance in km
+        });
+        setData(nearbySalons);
+      }
+     
+   
+  }, [location, nailsalon, hairsalon]);
+  const handleMarkerPress = (item) => {
+    const { latitude, longitude } = item;
+    const url = `https://www.google.com/maps/dir/?api=1&origin=${location.coords.latitude},${location.coords.longitude}&destination=${latitude},${longitude}`;
+    Linking.openURL(url);
+  };
+   
+
   return (
     <View>
           <MapView 
-          style={{height:800,width:900}}
-        initialRegion={{
-          latitude: 31.518816325825334,
-          longitude: 74.36178405128638,
-          latitudeDelta: 0.005,
-          longitudeDelta: 0.005,
-  }}>
-    
-    
-  </MapView>
-  <View style={{ position: 'absolute',zIndex: 1,bottom:moderateVerticalScale(210) }}>
-       <FlatList
-       horizontal={true}
-       showsHorizontalScrollIndicator={false}
-            data={data}
-            renderItem={({item,index})=>(
-                    <View>
-                       <TouchableOpacity 
-                        onPress={() => {
-                            navigation.navigate(navigationStrings.SHOP, { item});
-                          }}
-                       >
-                       <View
-              style={{
-                flexDirection: "row",
-                margin: verticalScale(7),
-                borderWidth: moderateScale(1),
-                borderRadius: moderateScale(10),
-                backgroundColor: "white",
-                borderColor: "white",
-              }}
-            >
-              <View style={{ flex: 0.3 }}>
-                <Image
-                  source={item.image}
-                  style={{
-                    width: moderateScale(120),
-                    height: moderateVerticalScale(120),
-                  }}
-                />
-              </View>
-
-              <View
+          style={{height:moderateVerticalScale(750)}}
+          region={mapRegion}
+          >
+           {location?
+             <Marker
+             coordinate={{
+               latitude: location.coords.latitude,
+               longitude: location.coords.longitude,
+             }}
+             title={address}
+           />:null
+           }
+    {   
+    data.map((item, index) => (
+          <Marker
+            key={index}
+            coordinate={{
+              latitude: parseFloat(item.location.latitude),
+              longitude:parseFloat( item.location.longitude),
+            }}
+            onPress={() => handleMarkerPress(item)}
+          >
+                   <View style={{ alignItems: 'center' }}>
+             
+              <Text
                 style={{
-                  flexDirection: "row",
-                  flex: 0.6,
+                 
+                  // Adjust this to place the text above/below the image
+                  backgroundColor: 'rgba(255, 255, 255, 0.7)', // Semi-transparent background
+                  paddingHorizontal: 5,
+                  borderRadius: 5,
+                  
+                  
                 }}
               >
-                <View style={{ padding: moderateScale(20) }}>
-                  <Text
+                {item.name}
+              </Text>
+              <Image
+                source={item.image}
+                style={{ width: 40, height: 40, borderRadius: 20 }}
+              />
+            </View>
+          </Marker>
+        ))}
+    
+  </MapView>
+          {location?
+             <View style={{ position: 'absolute',zIndex: 1,bottom:moderateVerticalScale(210) }}>
+             <FlatList
+             horizontal={true}
+             showsHorizontalScrollIndicator={false}
+                  data={data}
+                  renderItem={({item,index})=>(
+                          <View>
+                             <TouchableOpacity 
+                              onPress={() => {
+                                  navigation.navigate(navigationStrings.SHOP, { item});
+                                }}
+                             >
+                             <View
                     style={{
-                      fontSize: scale(17),
-
-                      fontWeight: "400",
-                      color,
+                      flexDirection: "row",
+                      margin: verticalScale(7),
+                      borderWidth: moderateScale(1),
+                      borderRadius: moderateScale(10),
+                      backgroundColor: "white",
+                      borderColor: "white",
                     }}
                   >
-                    {item.name}
-                  </Text>
-
-                  <View style={{ flexDirection: "row" }}>
-                    <StarIcon color="grey" fill={color.foreground} size={15} />
-                    <StarIcon color="grey" fill={color.foreground} size={15} />
-                    <StarIcon color="grey" fill={color.foreground} size={15} />
-                    <StarIcon color="grey" size={15} />
-                    <StarIcon color="grey" size={15} />
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <MapPinIcon size={18} color="grey" />
-                    <Text
+                    <View style={{ flex: 0.3 }}>
+                      <Image
+                        source={item.image}
+                        style={{
+                          width: moderateScale(120),
+                          height: moderateVerticalScale(120),
+                        }}
+                      />
+                    </View>
+      
+                    <View
                       style={{
-                        fontSize: scale(12),
-                        color: color.textColor,
+                        flexDirection: "row",
+                        flex: 0.6,
                       }}
                     >
-                      {item.address}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-
-             
-            </View>
-                       </TouchableOpacity>
+                      <View style={{ padding: moderateScale(20) }}>
+                        <Text
+                          style={{
+                            fontSize: scale(17),
+      
+                            fontWeight: "400",
+                            color,
+                          }}
+                        >
+                          {item.name}
+                        </Text>
+      
+                        <View style={{ flexDirection: "row" }}>
+                          <StarIcon color="grey" fill={color.foreground} size={15} />
+                          <StarIcon color="grey" fill={color.foreground} size={15} />
+                          <StarIcon color="grey" fill={color.foreground} size={15} />
+                          <StarIcon color="grey" size={15} />
+                          <StarIcon color="grey" size={15} />
+                        </View>
+                        <View style={{ flexDirection: "row" }}>
+                          <MapPinIcon size={18} color="grey" />
+                          <Text
+                            style={{
+                              fontSize: scale(12),
+                              color: color.textColor,
+                            }}
+                          >
+                            {item.address}
+                          </Text>
+                        </View>
+                      </View>
                     </View>
-            )}
-       />
-       
-       </View>
+      
+                   
+                  </View>
+                             </TouchableOpacity>
+                          </View>
+                  )}
+             />
+             
+             </View>:null  
+        }
     </View>
   )
 }

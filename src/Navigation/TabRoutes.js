@@ -54,7 +54,7 @@ export default function TabRoutes({nailsalon,hairsalon,permissionStatus,setPermi
       >
           {(props) => <NearBy {...props} nailsalon={nailsalon}
            hairsalon={hairsalon} permissionStatus={permissionStatus} setPermissionStatus={setPermissionStatus}
-           location={location} setLocation = {setLocation} address ={address} setAddress={setAddress}
+           location={location} setLocation = {setLocation} address = {address} setAddress={setAddress}
            />}
         </Tab.Screen>
       

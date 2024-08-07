@@ -10,6 +10,7 @@ import RadioButtonRN from "radio-buttons-react-native";
 
 export default function Services({ route }) {
   const { services } = route.params;
+
   const [selected, setSelected] = useState({});
   const [totalPrice, setTotalPrice] = useState();
 

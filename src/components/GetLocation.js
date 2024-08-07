@@ -11,19 +11,25 @@ export default function GetLocation({permissionStatus,setPermissionStatus,locati
 
 
 
+
   useEffect(() => {
     const getLocation = async () => {
-      const { location, address,permissionStatus1 } = await userLocation();
-      setPermissionStatus(permissionStatus1)
-      
-      if (permissionStatus === 'granted') {
-        setLocation(location);
+      try {
+        const { location, address, permissionStatus1 } = await userLocation();
+        setPermissionStatus(permissionStatus1);
+        
+        if (permissionStatus1 === 'granted') {
+          setLocation(location);
           setAddress(`${address[0].name}, ${address[0].city}`);
+       
+        }
+      } catch (error) {
+        console.log(error);
       }
-     
-            };
+    };
+
     getLocation();
-  }, [permissionStatus]);
+  }, []);
   let text = 'Waiting...';
   if (errorMsg) {
     text = errorMsg;
